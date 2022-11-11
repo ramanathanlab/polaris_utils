@@ -122,7 +122,6 @@ if __name__ == "__main__":
         nranks_per_node=args.nranks_per_node,
         ndepth=args.ndepth,
     )
-    print(settings.binding_script)
 
     # Log command for reproducibility
     with open("command.log", "w") as f:
