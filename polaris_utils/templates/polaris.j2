@@ -64,5 +64,7 @@ mpiexec \
   --cpu-bind none \
   --mem-bind none \
   --hostfile $PBS_NODEFILE  \
+{%if binding_script %}
   {{ binding_script }} \
+{% endif %}
   {{ command }}
