@@ -40,7 +40,19 @@ pip3 install -e .
 
 ## Usage
 
-TODO
+To run an arbitrary command through polaris using this package use the following command:
+
+```
+python -m polaris_utils.submit -a [ACCONT] -q [QUEU_NAME] -t [TIME] -n [NNODES] -j [JOBNAME] --extras "[PRERUN_COMMANDS]" --command "[COMMAND]"
+```
+_Note: the `--extras` and `--command` arguments must be escaped with strings_ 
+
+An example is shown here: 
+
+```
+python -m polaris_utils.submit -a [ACCOUNT] -q debug -t 1:00:00 -n 2 -j polaris_utils_ex --extras "module load conda/2022-09-08; conda activate my_env" --command "python -m genslm_develop.train --config /lus/eagle/projects/CVD-Mol-AI/github/genslm-develop/configs/polaris-multi.yaml"
+```
+_Note: this example is not a valid command, but is meant to show the structure of the command_
 
 ## Contributing
 
