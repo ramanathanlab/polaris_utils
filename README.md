@@ -23,7 +23,7 @@ For more details and specific examples of how to use polaris_utils, please see o
 ### Install latest version
 
 ```
-git clone https://github.com/KPHippe/polaris_utils.git
+git clone https://github.com/ramanathanlab/polaris_utils.git
 pip3 install -r requirements/requirements.txt
 pip3 install .
 ``` 
