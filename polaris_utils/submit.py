@@ -41,7 +41,8 @@ class HPCSettings(BaseModel):
                 print("CPU binding oversubscribed")
         return v
 
-    def __init__(__pydantic_self__, **data: Any) -> None:
+    # Commenting out for now to see if we can get this to work without it
+    def ___init__(__pydantic_self__, **data: Any) -> None:
         nranks_per_node = data.get("nranks_per_node")
         if nranks_per_node == 1:
             binding_script = (
