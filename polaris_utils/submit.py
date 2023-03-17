@@ -16,6 +16,7 @@ class HPCSettings(BaseModel):
     time: str
     nodes: int
     job_name: str
+    filesystems: str
     workdir: Path
     command: str
     extras: Optional[str]
@@ -95,6 +96,7 @@ if __name__ == "__main__":
     parser.add_argument("-n", "--nodes", default=1, type=int)
     parser.add_argument("-j", "--job_name", default="polaris_submission")
     parser.add_argument("-w", "--workdir", default=Path("."), type=Path)
+    parser.add_argument("-f", "--filesystems", default="home:eagle", type=str)
     parser.add_argument("--nranks_per_node", type=int, default=1)
     parser.add_argument("--ndepth", type=int, default=64)
     parser.add_argument(
@@ -115,6 +117,7 @@ if __name__ == "__main__":
         queue=args.queue,
         time=args.time,
         nodes=args.nodes,
+        filesystems=args.filesystems,
         job_name=args.job_name,
         workdir=args.workdir,
         command=args.command,
