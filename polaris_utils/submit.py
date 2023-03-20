@@ -30,18 +30,7 @@ class HPCSettings(BaseModel):
         v.mkdir(exist_ok=True, parents=True)
         return v
 
-    @validator("ndepth")
-    def depth_warning(cls, v: int, values: Dict[str, Any]) -> int:
-        assert isinstance(v, int)
-        ranks = values.get("nranks_per_node")
-        if ranks is not None:
-            if ranks * v < 64:
-                print("CPU binding undersubscribed")
-            if ranks * v > 64:
-                print("CPU binding oversubscribed")
-        return v
-
-    # Commenting out for now to see if we can get this to work without it
+    # Commenting out for now to see if we can get this to work without it, Sams script say it is not needed
     def _nonfunc__init__(__pydantic_self__, **data: Any) -> None:
         nranks_per_node = data.get("nranks_per_node")
         if nranks_per_node == 1:
