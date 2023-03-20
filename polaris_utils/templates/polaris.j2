@@ -58,11 +58,10 @@ export NCCL_NET_GDR_LEVEL=PHB
 
 # For applications that internally handle binding MPI/OpenMP processes to GPUs
 mpiexec \
+  --verbose \
+  --envall \
   -n ${NTOTRANKS} \
   --ppn ${NRANKS_PER_NODE} \
-  --depth=${NDEPTH} \
-  --cpu-bind none \
-  --mem-bind none \
   --hostfile $PBS_NODEFILE  \
 {%if binding_script %}
   {{ binding_script }} \
