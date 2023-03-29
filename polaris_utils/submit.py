@@ -89,6 +89,7 @@ if __name__ == "__main__":
     parser.add_argument("-f", "--filesystems", default="home:eagle", type=str)
     parser.add_argument("--nranks_per_node", type=int, default=1)
     parser.add_argument("--ndepth", type=int, default=64)
+    parser.add_argument("--binding_script", type=Path)
     parser.add_argument(
         "--command",
         type=str,
@@ -110,6 +111,7 @@ if __name__ == "__main__":
         filesystems=args.filesystems,
         job_name=args.job_name,
         workdir=args.workdir,
+        binding_script=args.binding_script,
         command=args.command,
         extras=args.extras,
         nranks_per_node=args.nranks_per_node,
